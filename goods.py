@@ -41,21 +41,17 @@ while True:
             g.append(new_item)
 
     elif n == '2':  # сортировать по названию товара
-        total_1 = []
+        g.sort(key=lambda x: x.title)
         for x in g:
-            total_1.append([x.title, x.shop, x.count, x.unit])
-        total_1.sort(key=lambda x: x[0])
-        for el in total_1:
-            print(*el)
+            print(x.title, x.shop, x.count, x.unit)
+        
         
                     
     elif n == '3':  # сортировать по названию магазина
-        total_2 = []
+        g.sort(key=lambda x: x.shop)
         for x in g:
-            total_2.append([x.title, x.shop, x.count, x.unit])
-        total_2.sort(key=lambda x: x[1])
-        for el in total_2:
-            print(*el)
+            print(x.title, x.shop, x.count, x.unit)
+        
 
     elif n == '4':
         name = input('Введите название товара: ')
