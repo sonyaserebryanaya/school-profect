@@ -14,10 +14,11 @@ for x in g:
 while True:
     print('Введите номер операции')
     print('1 - изменить базу данных')
-    print('2 - сортировать по названию товара или магазина')
-    print('3 - вывод информации о товаре')
-    print('4 - сохранить изменения/изменить название базы')
-    print('5 - выйти')
+    print('2 - сортировать по названию товара')
+    print('3 - сортировать по названию магазина')
+    print('4 - вывод информации о товаре')
+    print('5 - сохранить изменения/изменить название базы')
+    print('6 - выйти')
 
     n = input()
     if n == '1':
@@ -39,38 +40,35 @@ while True:
             new_item.unit = new_data[3]
             g.append(new_item)
 
-    elif n == '2':  # сортировать по названию товара или магазина
+    elif n == '2':  # сортировать по названию товара
         total_1 = []
-        total_2 = []
-        print('Если хотите сортировать по товару, то нажмите 1, если хотите сортировать по магазинам, то нажмите 2')
-        m = int(input()):
-        if m == '1':
-            for x in g:
-                total_1.append(x.title)
-            for el in total_1:
-                for ele in x:
-                    if ele.title == el:
-                        print(ele.title, ele.shop, ele.count, ele.unit)
+        for x in g:
+            total_1.append(x.title)
+        for el in total_1:
+            for ele in x:
+                if ele.title == el:
+                    print(ele.title, ele.shop, ele.count, ele.unit)
                     
-        elif m == '2':
-            for x in g:
-                total_2.append(x.shop)
-            for el in total_2:
-                for ele in x:
-                    if ele.shop == el:
-                        print(ele.title, ele.shop, ele.count, ele.unit)
+    elif n == '3':  # сортировать по названию магазина
+        total_2 = []
+        for x in g:
+            total_2.append(x.shop)
+        for el in total_2:
+            for ele in x:
+                if ele.shop == el:
+                    print(ele.title, ele.shop, ele.count, ele.unit)
 
-    elif n == '3':
+    elif n == '4':
         name = input('Введите название товара: ')
         for x in g:
             if x.title == name:
                 print(x.title, x.shop, x.count, x.unit)
 
-    elif n == '4':
+    elif n == '5':
         for x in st:
             print(x.fam, x.name, x.surname, x.marks)
 
-    elif n == '5':
+    elif n == '6':
         a = input('Выйти? да/нет ')
         if a == 'да':
             break
