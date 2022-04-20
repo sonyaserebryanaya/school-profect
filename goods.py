@@ -44,14 +44,11 @@ while True:
         g.sort(key=lambda x: x.title)
         for x in g:
             print(x.title, x.shop, x.count, x.unit)
-        
-        
-                    
+
     elif n == '3':  # сортировать по названию магазина
         g.sort(key=lambda x: x.shop)
         for x in g:
             print(x.title, x.shop, x.count, x.unit)
-        
 
     elif n == '4':
         name = input('Введите название товара: ')
