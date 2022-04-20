@@ -43,20 +43,19 @@ while True:
     elif n == '2':  # сортировать по названию товара
         total_1 = []
         for x in g:
-            total_1.append(x.title)
+            total_1.append([x.title, x.shop, x.count, x.unit])
+        total_1.sort(key=lambda x: x[0])
         for el in total_1:
-            for ele in x:
-                if ele.title == el:
-                    print(ele.title, ele.shop, ele.count, ele.unit)
+            print(*el)
+        
                     
     elif n == '3':  # сортировать по названию магазина
         total_2 = []
         for x in g:
-            total_2.append(x.shop)
+            total_2.append([x.title, x.shop, x.count, x.unit])
+        total_2.sort(key=lambda x: x[1])
         for el in total_2:
-            for ele in x:
-                if ele.shop == el:
-                    print(ele.title, ele.shop, ele.count, ele.unit)
+            print(*el)
 
     elif n == '4':
         name = input('Введите название товара: ')
@@ -79,7 +78,3 @@ d = open('goods.dat', 'wb')
 pickle.dump(g, d)
 d.close()
 f.close()
-
-#test
-#test2
-
