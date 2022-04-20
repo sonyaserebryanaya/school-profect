@@ -14,7 +14,7 @@ for x in g:
 while True:
     print('Введите номер операции')
     print('1 - изменить базу данных')
-    print('2 - сортировать')
+    print('2 - сортировать по названию товара или магазина')
     print('3 - вывод информации о товаре')
     print('4 - сохранить изменения/изменить название базы')
     print('5 - выйти')
@@ -32,27 +32,39 @@ while True:
                     x.unit = new_data[3]
         elif a == 'дополнить':
             new_item = Goods()
-            new_data = input('введите данные о продукте: ').split()
+            new_data = input('Введите данные о продукте: ').split()
             new_item.title = new_data[0]
             new_item.shop = new_data[1]
             new_item.count = new_data[2]
             new_item.unit = new_data[3]
             g.append(new_item)
 
-    elif n == '2':
-        for x in st:
-            if 2 in x.marks:
-                print(x.fam, x.name, x.surname, *x.marks)
+    elif n == '2':  # сортировать по названию товара или магазина
+        total_1 = []
+        total_2 = []
+        print('Если хотите сортировать по товару, то нажмите 1, если хотете сортировать по магазинам, то нажмите 2')
+        m = int(input()):
+        if m == '1':
+            for x in g:
+                total_1.append(x.title)
+            for el in total_1:
+                for ele in x:
+                    if ele.title == el:
+                        print(ele.title, ele.shop, ele.count, ele.unit)
+                    
+        elif m == '2':
+            for x in g:
+                total_2.append(x.shop)
+            for el in total_2:
+                for ele in x:
+                    if ele.shop == el:
+                        print(ele.title, ele.shop, ele.count, ele.unit)
 
     elif n == '3':
-        fam1 = input('Введите фамилию студента: ')
-        student = input('Введите все данные о студенте: ').split()
-        for x in st:
-            if x.fam == fam1:
-                x.fam = fam1
-                x.name = student[1]
-                x.surname = student[2]
-                x.marks = list(map(int, student[3:]))
+        name = input('Введите название товара: ')
+        for x in g:
+            if x.title == name:
+                print(x.title, x.shop, x.count, x.unit)
 
     elif n == '4':
         for x in st:
