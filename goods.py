@@ -8,7 +8,8 @@ class Goods:
     unit = None
 
 
-f = open('goods.dat', 'rb')
+fname = input('введите имя базы данных: ')
+f = open(fname, 'rb')
 g = pickle.load(f)
 for x in g:
     print(x.name, x.shop, x.count, x.unit)
@@ -60,8 +61,16 @@ while True:
                 print(x.name, x.shop, x.count, x.unit)
 
     elif n == '4':
-        for x in st:
-            print(x.fam, x.name, x.surname, x.marks)
+        a = input('сохранить изменения / изменить название базы (ввести нужное): ')
+        if a == 'сохранить изменения':
+            d = open(fname, 'wb')
+            pickle.dump(g, d)
+            d.close()
+        elif a == 'изменить название':
+            fname = input('введите новое название базы: ')
+            d = open(fname, 'wb')
+            pickle.dump(g, d)
+            d.close()
 
     elif n == '5':
         for x in g:
@@ -74,7 +83,7 @@ while True:
     else:
         print('Нет такой операции')
 
-d = open('goods.dat', 'wb')
+d = open(fname, 'wb')
 pickle.dump(g, d)
 d.close()
 f.close()
