@@ -1,7 +1,7 @@
 import pickle
 
 class Goods:
-    title = None
+    name = None
     shop = None
     count = None
     unit = None
@@ -9,7 +9,7 @@ class Goods:
 f = open('goods.dat', 'rb')
 g = pickle.load(f)
 for x in g:
-    print(x.title, x.shop, x.count, x.unit)
+    print(x.name, x.shop, x.count, x.unit)
 
 while True:
     print('Введите номер операции')
@@ -27,34 +27,34 @@ while True:
             g_title = input('введите название продукта, информацию о котором хотите корректировать: ')
             new_data = input('введите новые данные о продукте: ').split()
             for x in g:
-                if x.title == g_title:
+                if x.name == g_title:
                     x.shop = new_data[1]
                     x.count = new_data[2]
                     x.unit = new_data[3]
         elif a == 'дополнить':
             new_item = Goods()
             new_data = input('Введите данные о продукте: ').split()
-            new_item.title = new_data[0]
+            new_item.name = new_data[0]
             new_item.shop = new_data[1]
             new_item.count = new_data[2]
             new_item.unit = new_data[3]
             g.append(new_item)
 
     elif n == '2':  # сортировать по названию товара
-        g.sort(key=lambda x: x.title)
+        g.sort(key=lambda x: x.name)
         for x in g:
-            print(x.title, x.shop, x.count, x.unit)
+            print(x.name, x.shop, x.count, x.unit)
 
     elif n == '3':  # сортировать по названию магазина
         g.sort(key=lambda x: x.shop)
         for x in g:
-            print(x.title, x.shop, x.count, x.unit)
+            print(x.name, x.shop, x.count, x.unit)
 
     elif n == '4':
         name = input('Введите название товара: ')
         for x in g:
-            if x.title == name:
-                print(x.title, x.shop, x.count, x.unit)
+            if x.name == name:
+                print(x.name, x.shop, x.count, x.unit)
 
     elif n == '5':
         for x in st:
