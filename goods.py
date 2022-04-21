@@ -17,8 +17,6 @@ while True:
     print('Введите номер операции')
     print('1 - изменить базу данных')
     print('2 - сортировать список данных')
-    #print('2 - сортировать по названию товара')
-    #print('3 - сортировать по названию магазина')
     print('3 - вывод информации о товаре')
     print('4 - сохранить изменения/изменить название базы')
     print('5 - вывести данные')
@@ -54,16 +52,6 @@ while True:
             g.sort(key=lambda x: x.name)
             for x in g:
                 print(x.name, x.shop, x.count, x.unit)
-
-    #elif n == '2':  # сортировать по названию товара
-        #g.sort(key=lambda x: x.name)
-        #for x in g:
-            #print(x.name, x.shop, x.count, x.unit)
-
-    #elif n == '3':  # сортировать по названию магазина
-        #g.sort(key=lambda x: x.shop)
-        #for x in g:
-            #print(x.name, x.shop, x.count, x.unit)
 
     elif n == '3':
         name = input('Введите название товара: ')
