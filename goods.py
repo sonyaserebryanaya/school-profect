@@ -13,6 +13,7 @@ f = open(fname, 'rb')
 g = pickle.load(f)
 for x in g:
     print(x.name, x.shop, x.count, x.unit)
+print()
 
 while True:
     print('Введите номер операции')
