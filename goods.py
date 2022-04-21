@@ -1,10 +1,12 @@
 import pickle
 
+
 class Goods:
     name = None
     shop = None
     count = None
     unit = None
+
 
 f = open('goods.dat', 'rb')
 g = pickle.load(f)
