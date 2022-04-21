@@ -51,7 +51,7 @@ while True:
             for x in g:
                 print(x.name, x.shop, x.count, x.unit)
         elif a == 'по названию магазина':
-            g.sort(key=lambda x: x.name)
+            g.sort(key=lambda x: x.shop)
             for x in g:
                 print(x.name, x.shop, x.count, x.unit)
 
